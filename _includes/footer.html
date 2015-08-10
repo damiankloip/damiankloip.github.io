@@ -2,8 +2,6 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
@@ -46,7 +44,14 @@
       </div>
 
       <div class="footer-col  footer-col-3">
-        <p class="text">{{ site.description }}</p>
+        <div class="recent-posts">
+          <h2>Recent posts</h2>
+          <ul class="recent-post-list">
+            {% for post in site.posts limit:5 %}
+            <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> ({{ post.date | date: "%b %-d, %Y" }})</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
 
