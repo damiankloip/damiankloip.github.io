@@ -1,6 +1,6 @@
 # Site settings
 title: damiankloip.net
-email: damiankloip@gmail.com
+email:
 description:
 # the subpath of your site, e.g. /blog/
 baseurl: ""
