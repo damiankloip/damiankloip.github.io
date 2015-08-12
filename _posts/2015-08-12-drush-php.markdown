@@ -15,7 +15,7 @@ drush ev 'var_dump(\Drupal\user\Entity\User::load(1));'
 
 <!--more-->
 
-Aside from looking like crap, you need to remember to dump or print the output, escape quotes, as so on.
+Aside from looking like crap, you need to type `drush ev ...` each time, remember to dump or print the output, escape quotes, and so on.
 
 Or using The devel module's
 `/devel/php` form. Which works OK, you could use `dpm()` for some nicer output. This approach also has downsides. A big one being that
