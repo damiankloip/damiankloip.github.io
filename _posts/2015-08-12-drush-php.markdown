@@ -41,7 +41,7 @@ You can also create your own local variables to (re)use in the REPL:
 In Drupal 8, you also get the service container added into the variable scope for you, so you don't need to do `\Drupal::getContainer()` or
 `\Drupal::service('views.view_data')`. You can just do `$container->get('views.views_data')`.
 
-Things are about to get a whole lot better too. Once this [pull request][drush-ops-psysh-pr] makes gets merged. [PsySH][psysh] is an even better,
+Things are about to get a whole lot better too. Once this [pull request][drush-ops-psysh-pr] makes gets merged. [PsySH][psysh] is an even better 
 PHP REPL. We can do even more great things like work with namespaces, autocompletion, and view documention or functions; to name a few. We will 
 also have the ability to define custom commands for use in the shell! I will do a follow up post when we have made the switch to PsySH to show
 all new power you'll have at your fingertips.
