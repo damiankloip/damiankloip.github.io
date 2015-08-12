@@ -12,3 +12,4 @@ github_username:  damiankloip
 # Build settings
 markdown: kramdown
 permalink: /:year/:title
+excerpt_separator: <!--more-->
