@@ -202,3 +202,17 @@ pre {
         }
     }
 }
+
+.tag {
+    color: #ffffff;
+    font-size: 12px;
+    white-space: nowrap;
+    background: #1756a9;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    border: 1px solid #1756a9;
+    display: inline-block;
+    margin: 2px 2px 2px 0;
+    padding: 3px;
+    border-radius: 0;
+}
