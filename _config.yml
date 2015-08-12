@@ -5,7 +5,7 @@ description:
 # the subpath of your site, e.g. /blog/
 baseurl: ""
 # the base hostname & protocol for your site
-url: "http://damiankloip.net"
+url: "http://blog.damiankloip.net"
 twitter_username: damiankloip
 github_username:  damiankloip
 
