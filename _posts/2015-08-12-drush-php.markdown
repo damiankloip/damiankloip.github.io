@@ -47,7 +47,11 @@ In Drupal 8 (as the example above is), you get the service container added into 
 `\Drupal::service('views.view_data')`. You can just do `$container->get('views.views_data')`.
 
 However, you'll notice that you can't really see much information about the object right now, as all the properties are protected. This is 
-no problem for PsySH - you can dump properties of the object easily too with the dump command, `dump -a $variable`:
+no problem for PsySH - you can dump properties of the object easily, with the `dump` command:
+
+{% highlight php %}
+dump -a $variable
+{% endhighlight %}
 
 ![Drush PHP comment dump][drush-php-comment-dump]
 
@@ -55,8 +59,13 @@ As you can see, you also get some easy on the eye colours, property visibility, 
 component. Much better than the standard PHP output. We get the best of both worlds, we can see what object we are dealing with without always dumping
 everything to the output.
 
-You can also see further information about the class using the `ls` command. For example, `ls -la \Drupal\user\Entity\User` will show you all User entity
-constants, properties, and methods with their signature.
+You can also see further information about the class using the `ls` command. For example,
+
+{% highlight php %}
+ls -la \Drupal\user\Entity\User
+{% endhighlight %}
+
+will show you all User entity constants, properties, and methods with their signature.
 
 To save your fingers even more, PsySH also supports autocompletion. You get autocompletion on functions, namespaces, object methods, and
 any local variables you have set up in your session. Not too shabby!
@@ -65,7 +74,7 @@ Another really useful feature is being able to work in namespaces. Set the names
 
 ![Drush PHP namespace][drush-php-namespace]
 
-You can also show the code for a method, or the docblock, using the `show` and `doc` command respectively:
+You can also show the code for a method using the `show` command, or the docblock using the `doc` command:
 
 ![Drush PHP code and docs][drush-php-code-doc]
 
