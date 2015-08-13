@@ -36,7 +36,7 @@ you can easily do this with homebrew: `brew install drush --HEAD`.
 
 Here is a quick sample:
 
-![Drush PHP array serialize][drush-php-serialize]
+![Drush PHP intro][drush-php-intro]
 
 You can create your own local variables to (re)use inside the REPL. Everything is evaluated and printed for you. Also, notice how using
 semi-colons is optional.
@@ -82,6 +82,7 @@ Hopefully that gives you an idea of all the new power you have at your fingertip
 
 Give it a try!
 
+[drush-php-intro]: {{ "/assets/drush-php-intro.png" | prepend: site.baseurl }} "Drush PHP intro"
 [drush-php-comment-load]: {{ "/assets/drush-php-comment-load.png" | prepend: site.baseurl }} "Drush PHP comment load"
 [drush-php-comment-dump]: {{ "/assets/drush-php-comment-dump.png" | prepend: site.baseurl }} "Drush PHP comment dump"
 [drush-php-serialize]: {{ "/assets/drush-php-serialize.png" | prepend: site.baseurl }} "Drush PHP serialize"
