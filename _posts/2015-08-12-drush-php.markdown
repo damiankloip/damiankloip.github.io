@@ -25,32 +25,63 @@ for example.
 There is a better way...
 
 Since [Drush 7.0.0][drush-7-release] we now have a `drush php` command at our disposal. Let's use it! You can then use an interactive 
-PHP [REPL][repl] (Currently [Boris][boris]) with your bootstrapped site, so you could run the same as above, but you don't need to print the output, 
+PHP [REPL][repl] with your bootstrapped site. So you could run the same as above, but you don't need to print the output, and 
 it's evaluated for you. It's a Drupal code playground. You can do quick code experimentation, or just grab some data. This can
 also help with debugging certain issues.
 
-![Drush PHP user load][drush-php-1]
+We recently merged a [pull request][drush-ops-psysh-pr] to use [PsySH][psysh] as our underlying REPL,
+instead of [Boris][boris]. This post will cover usage with PsySH. Boris does not have the rich feature set that PsySh does, but a lot of this
+still applies if you are using Drush 7. Otherwise, get the latest [Drush master][drush-master] and try out these great new features. If you are on OSX
+you can easily do this with homebrew: `brew install drush --HEAD`.
 
-As you can see, you also get some easy on the eye colours, property visibility, and formatting. Courtesy of the Symfony [VarDumper][var-dumper] 
-component. Much better than the standard PHP output.
+Here is a quick sample:
 
-You can also create your own local variables to (re)use in the REPL:
+![Drush PHP array serialize][drush-php-serialize]
 
-![Drush PHP serialize][drush-php-2]
+You can create your own local variables to (re)use inside the REPL. Everything is evaluated and printed for you. Also, notice how using
+semi-colons is optional.
 
-In Drupal 8, you also get the service container added into the variable scope for you, so you don't need to do `\Drupal::getContainer()` or
+![Drush PHP comment load][drush-php-comment-load]
+
+In Drupal 8 (as the example above is), you get the service container added into the variable scope for you, so you don't need to do `\Drupal::getContainer()` or
 `\Drupal::service('views.view_data')`. You can just do `$container->get('views.views_data')`.
 
-Things are about to get a whole lot better too. Once this [pull request][drush-ops-psysh-pr] makes gets merged. [PsySH][psysh] is an even better 
-PHP REPL. We can do even more great things like work with namespaces, autocompletion, and view documention or functions; to name a few. We will 
-also have the ability to define custom commands for use in the shell! I will do a follow up post when we have made the switch to PsySH to show
-all new power you'll have at your fingertips.
+However, you'll notice that you can't really see much information about the object right now, as all the properties are protected. This is 
+no problem for PsySH - you can dump properties of the object easily too with the dump command, `dump -a $variable`:
 
-[drush-php-1]: {{ "/assets/drush-php-1.png" | prepend: site.baseurl }} "Drush PHP user load"
-[drush-php-2]: {{ "/assets/drush-php-2.png" | prepend: site.baseurl }} "Drush PHP serialize"
-[drush-ops-psysh-pr]: https://github.com/drush-ops/drush/pull/1543
+![Drush PHP comment dump][drush-php-comment-dump]
+
+As you can see, you also get some easy on the eye colours, property visibility, and formatting. PsySH uses elements of the Symfony [VarDumper][var-dumper] 
+component. Much better than the standard PHP output. We get the best of both worlds, we can see what object we are dealing with without always dumping
+everything to the output.
+
+You can also see further information about the class using the `ls` command. For example, `ls -la \Drupal\user\Entity\User` will show you all User entity
+constants, properties, and methods with their signature.
+
+To save your fingers even more, PsySH also supports autocompletion. You get autocompletion on functions, namespaces, object methods, and
+any local variables you have set up in your session. Not too shabby!
+
+Another really useful feature is being able to work in namespaces. Set the namespace and work in that context:
+
+![Drush PHP namespace][drush-php-namespace]
+
+You can also show the code for a method, or the docblock, using the `show` and `doc` command respectively:
+
+![Drush PHP code and docs][drush-php-code-doc]
+
+Hopefully that gives you an idea of all the new power you have at your fingertips using PsySH and `drush php`.
+
+Give it a try!
+
+[drush-php-comment-load]: {{ "/assets/drush-php-comment-load.png" | prepend: site.baseurl }} "Drush PHP comment load"
+[drush-php-comment-dump]: {{ "/assets/drush-php-comment-dump.png" | prepend: site.baseurl }} "Drush PHP comment dump"
+[drush-php-serialize]: {{ "/assets/drush-php-serialize.png" | prepend: site.baseurl }} "Drush PHP serialize"
+[drush-php-namespace]: {{ "/assets/drush-php-namespace.png" | prepend: site.baseurl }} "Drush PHP namespace"
+[drush-php-code-doc]: {{ "/assets/drush-php-code-doc.png" | prepend: site.baseurl }} "Drush PHP code and docs"
 [repl]: https://www.wikiwand.com/en/Read%E2%80%93eval%E2%80%93print_loop
 [var-dumper]: http://symfony.com/doc/current/components/var_dumper/introduction.html
 [psysh]: http://psysh.org/
+[drush-master]: https://github.com/drush-ops/drush
 [drush-7-release]: https://github.com/drush-ops/drush/releases/tag/7.0.0
+[drush-ops-psysh-pr]: https://github.com/drush-ops/drush/pull/1543
 [boris]: https://github.com/borisrepl/boris
