@@ -3,6 +3,7 @@ layout: post
 title: Drush PHP Settings
 date: 2015-10-17
 tags:
+  - drupal
   - drush
   - repl
 ---
