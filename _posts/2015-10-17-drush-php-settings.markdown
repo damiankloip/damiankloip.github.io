@@ -8,7 +8,7 @@ tags:
   - repl
 ---
 
-My previous post gave an introduction to the `drush php` command and [PsySH][psysh].
+My [previous post]({% post_url 2015-08-12-drush-php %}) gave an introduction to the `drush php` command and [PsySH][psysh].
 
 I have not had a chance to look at integrating PsySH settings for this directly with drush settings yet. Hopefully sometime
 soon I will open a pull request to integrate shell setting with drush better. So for now, I use the config file functionality
