@@ -13,6 +13,8 @@ I have not had a chance to look at integrating PsySH settings for this directly 
 soon I will open a pull request to integrate shell setting with drush better. So for now, I use the config file functionality
 that comes bundled with PsySH to add a config file. See [here][psysh-config] for more details.
 
+<!--more-->
+
 All we need to do is create a file at `~/.config/psysh/config.php`. As you can see from the extension,
 this is just a PHP file, so we can add whatever logic in here we need.
 
