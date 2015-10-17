@@ -18,8 +18,8 @@ $.get(path, function(data, textStatus, XHR) {
 {% endhighlight %}
 
 Great. Everything is dandy, until the content you have `#attached` assets from the content you have rendered on the
-server side. A simple AJAX request like this will give you the generated HTML but means you cannot easily update the
-assets for the page and re-attach Drupal behaviors.
+server side (or anything added with `drupal_add_(js|css|library`) too). A simple AJAX request like this will give you the generated HTML
+but means you cannot easily update the assets for the page and re-attach Drupal behaviors.
 
 <!--more-->
 
