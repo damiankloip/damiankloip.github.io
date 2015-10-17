@@ -20,7 +20,7 @@ All we need to do is create a file at `~/.config/psysh/config.php`. As you can s
 this is just a PHP file, so we can add whatever logic in here we need.
 
 I crudely detect if this is being run through drush by checking for the `drush_drupal_major_version` function. If it
-exists (and therefore drush has been bootstrapped) I add my drush specific file based on drupal version.
+exists (and therefore drush has been bootstrapped) I add my drush specific file based on Drupal version.
 
 Here is my `config.php` file:
 
