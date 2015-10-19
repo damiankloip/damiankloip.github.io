@@ -1,8 +1,7 @@
 ---
 layout: post
-published: false
 title: Drupal AJAX return content
-date: 2015-10-18
+date: 2015-10-19
 tags:
   - drupal
   - ajax
@@ -54,10 +53,10 @@ ajaxObject.eventResponse(this, {});
 Yes, this is very unintuitive and clunky but that's the AJAX API we have to work with. This will attach any new javascript assets from
 the rendered content and re-attach behaviors. Nice!
 
-That covers the jQuery side of things, but the returnContent command will not yet get invoked when
-the response is received from the server. For that to happen we need to return a JSON array of ajax commands,
-including our new `returnContent` command. E.g. Using this as a delivery callback is useful, as any render array
-can be used and the rest will be taken care of.
+That covers the jQuery side of things, but the returnContent command will not yet get invoked when the response is received from the
+server. For that to happen we need to return a JSON array of ajax commands (like any regular Drupal AJAX request), including our
+new `returnContent` command. E.g. Using this as a delivery callback is useful, as any render array can be used and the rest will be
+taken care of.
 
 {% highlight php %}
 <?php
@@ -74,7 +73,7 @@ function custom_return_delivery_callback($page_callback_result) {
 }
 {% endhighlight %}
 
-So, an example hook_menu item would look like this:
+So, an example hook_menu item would look like this, similar usage to the `ajax_deliver` delivery callback:
 
 {% highlight php %}
 <?php
@@ -96,5 +95,3 @@ function custom_menu() {
   return $items;
 }
 {% endhighlight %}
-
-This has similar usage to the `ajax_deliver` delivery callback.
