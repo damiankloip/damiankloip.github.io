@@ -51,7 +51,8 @@ ajaxObject.eventResponse(this, {});
 {% endhighlight %}
 
 Yes, this is very unintuitive and clunky but that's the AJAX API we have to work with. This will attach any new javascript assets from
-the rendered content and re-attach behaviors. Nice!
+the rendered content and re-attach behaviors. Nice! As the `returnContent` method is created and bound in place, the calling code you can
+easily control what happens in that closure, and which variables are available in that scope etc..
 
 That covers the jQuery side of things, but the returnContent command will not yet get invoked when the response is received from the
 server. For that to happen we need to return a JSON array of ajax commands (like any regular Drupal AJAX request), including our
