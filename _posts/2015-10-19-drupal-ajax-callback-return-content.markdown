@@ -71,6 +71,8 @@ function custom_return_delivery_callback($page_callback_result) {
   ]];
 
   print ajax_render($commands);
+
+  ajax_footer();
 }
 {% endhighlight %}
 
