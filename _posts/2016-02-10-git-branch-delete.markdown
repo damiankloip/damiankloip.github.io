@@ -20,12 +20,13 @@ With a simple Ruby script, this can be done in a couple of minutes. Plus it's mo
 #! /usr/bin/env ruby
 
 # Ruby wrapper script to filter git branches by prefix, provide a confirmation
-# prompt, then delete those branches. Without a confirmation prompt you can easily
+# prompt, then delete those branches. Without confirmation prompt you can easily
 # do something like `git branch -D (git branch | egrep "^\s+core-" | tr -d ' ')`
 # or `(git branch | egrep "^\s+core-") | xargs git branch -D`. This could be
 # done with a bash script, but Ruby is pleasant to use.
 
 prefix = ARGV.first
+remote = ARGV[1]
 
 raise 'No prefix specified' if prefix.nil?
 
@@ -64,7 +65,13 @@ end
 puts ''
 
 system('git', 'branch', '-D', *filtered)
-{% endhighlight %}
 
-This could also be modified to remove remote branches too. Just didn't get round to that
-yet.
+# If origin branch has been specified. Remove these branches on the remote too.
+# Note: This --delete option requires git >= 1.7.0.
+if (remote)
+  puts "Removing branches on remote: #{remote}"
+  puts ''
+
+  system('git', 'push', remote, '--delete', *filtered)
+end
+{% endhighlight %}
