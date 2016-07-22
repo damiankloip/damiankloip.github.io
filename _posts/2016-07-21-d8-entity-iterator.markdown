@@ -121,13 +121,13 @@ class ChunkedIterator implements \IteratorAggregate, \Countable {
    */
   protected function getClosure() {
     if (!isset($this->closure)) {
-      $this->closure = function () {
+      $closure = function () {
         // Reset the protected entities property, which is the static cache for
         // entity instances. Could only clear our IDs but don't think we need it.
         $this->entities = [];
       };
 
-      $this->closure->bindTo($this->entityStorage);
+      $this->closure = $closure->bindTo($this->entityStorage, $this->entityStorage);
     }
 
     return $this->closure;
