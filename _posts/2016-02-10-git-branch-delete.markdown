@@ -12,7 +12,10 @@ branch a lot, so I usually end up with tons of branches related to tickets etc..
 This provides a simple way to remove them by a particular pattern. Yes, you could
 just use an alias and one of the commands in the comment below. However, that does not
 really give you the chance to easily see the branches that will be removed and confirm.
-With a simple Ruby script, this can be done in a couple of minutes. Plus it's more fun!
+With a simple Ruby script, this can be done in a couple of minutes. Plus it's more fun (and
+less eye burning than a bash script)!
+
+*Tip: Name this script `git-branch-del` so it can be invoked as a git command, like `git branch-del`.*
 
 <!--more-->
 
